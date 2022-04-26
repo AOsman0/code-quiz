@@ -6,36 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz</title>
     <link rel="style-sheet" href="./assets/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
   </head>
   <body>
     <!-- header tag -->
-    <header>
-      <nav>
+    <header class="header">
+      <nav class="nav-container">
         <!-- nav link home -->
         <div class="nav-links">
-          <a href="#home">
+          <a href="home-link">
             <h4>home</h4>
           </a>
         </div>
         <!-- nav link highscores -->
         <div class="nav-links">
-          <a>
+          <a href="high-score-link">
             <h4>highscores</h4>
           </a>
         </div>
       </nav>
     </header>
+
     <!-- main tag -->
-
-    <main>
+    <main class="main" id="main">
       <!-- section of the page -->
-      <section>
-        <h1></h1>
-
+      <section class="content-section" id="start-quiz-section">
+        <div class="quizContainer"></div>
+        <h1 class="quiz-title">Coding Quiz</h1>
+        <h3></h3>
         <div>
-          <button></button>
+          <button id="start-quiz">Start!</button>
         </div>
       </section>
+      
     </main>
+    <script src="./js/script.js"></script>
   </body>
 </html>
