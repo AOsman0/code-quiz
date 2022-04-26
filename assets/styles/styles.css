@@ -37,19 +37,24 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  justify-content: space-around;
   align-items: center;
-}
-
-.nav-link:hover {
-  box-shadow: 0 0 2rem 0.6rem;
+  border-style: solid;
+  border-color: black;
 }
 
 .nav-link {
   font-size: 2rem;
   text-decoration: none;
   width: 2.2rem;
-  color: #949b96ff;
+  color: rgb(0, 112, 204);
   text-transform: uppercase;
   padding-bottom: 0.8rem;
+}
+
+.nav-link .quiz-title {
+  font-size: 4rem;
+  text-align: center;
+  color: rgb(122, 98, 19);
+  padding-top: 1rem;
 }
