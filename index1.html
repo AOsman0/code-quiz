@@ -5,28 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Coding Quiz</title>
-    <link rel="style-sheet" href="./assets/styles.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-    />
+    <link rel="stylesheet" href="./assets/styles/styles.css" />
   </head>
   <body>
-    <!-- header tag -->
+    <!-- nav tag -->
     <header class="header">
+      <!-- nav link home -->
       <nav class="nav-container">
-        <!-- nav link home -->
-        <div class="nav-links">
-          <a href="home-link">
-            <h4>home</h4>
-          </a>
-        </div>
-        <!-- nav link highscores -->
-        <div class="nav-links">
-          <a href="high-score-link">
-            <h4>highscores</h4>
-          </a>
-        </div>
+        <a href="" class="nav-link"> Home </a>
+        <a href="" class="nav-link"> Scores </a>
       </nav>
     </header>
 
@@ -34,15 +21,19 @@
     <main class="main" id="main">
       <!-- section of the page -->
       <section class="content-section" id="start-quiz-section">
-        <div class="quizContainer"></div>
-        <h1 class="quiz-title">Coding Quiz</h1>
-        <h3></h3>
+        <div class="quizContainer">
+          <h1 class="quiz-title">Coding Quiz</h1>
+          <h3 class="quiz-info">Press Start to begin quiz.</h3>
+        </div>
         <div>
           <button id="start-quiz">Start!</button>
         </div>
+        <!-- render alert -->
+        <div></div>
       </section>
-      
     </main>
-    <script src="./js/script.js"></script>
+    <!-- footer -->
+    <footer></footer>
+    <script src="./assets/js/script.js"></script>
   </body>
 </html>
