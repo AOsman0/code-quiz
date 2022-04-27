@@ -74,6 +74,7 @@ const handleFormSubmit = () => {
 };
 
 const renderTimerSection = () => {
+  console.log("render-timer");
   // use HTML as guide and build in JS
   // append section to main
 };
@@ -117,6 +118,7 @@ const startQuiz = () => {
   removeStartSection();
 
   // render timer section
+  renderTimerSection();
 
   // render question section called
   renderQuestionSection();
