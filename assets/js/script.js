@@ -1,13 +1,14 @@
 // global declarations
 const questions = [
-//adding my 4 questions
-//question 1
-"Which one of these is a semantic HTML element?";
-//answer to question 1
-"header";
-"a-side";
-"footer";
-"all of the above";
+  //adding my 4 questions
+  //question 1
+  "Which one of these is a semantic HTML element?",
+  "What does HTML stand for?",
+  "which one of the options is not a Keyword?",
+  "What's and important rule to remember when giving variable names?",
+  "What does the Cd command stand for in terminal?",
+  "Which is not an example of a type of viewport?",
+  "What is the right github command to clone from a repo?",
 ];
 let questionIndex = 0;
 let timerValue = 10 * questions.length;
@@ -97,5 +98,6 @@ const startQuiz = () => {
 };
 
 // add event listeners
+addEventListener(onclick);
 // add document on load event listener
 // add start button click event listener
