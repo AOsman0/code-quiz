@@ -32,7 +32,10 @@ const onLoad = () => {
   // if false then set highscores to empty array in LS
 };
 
-const removeStartSection = () => {};
+//function to remove start section
+const removeStartSection = () => {
+  console.log("remove-start-section");
+};
 
 const startTimer = () => {
   // declare function to execute every 1 sec
@@ -75,8 +78,11 @@ const renderTimerSection = () => {
   // append section to main
 };
 
+//function to render question to page
 const renderQuestionSection = () => {
+  console.log("render-question");
   // use HTML as guide and build in JS
+
   // append section to main
   // add click event listener on #question-section
 };
@@ -103,13 +109,17 @@ const renderQuizCompleteSection = () => {
 };
 
 const startQuiz = () => {
-
   //linked connected the start button
   console.log("start-button-clicked");
   // remove start section
-  // start timer
+
+  // call start timer
+  removeStartSection();
+
   // render timer section
-  // render question section
+
+  // render question section called
+  renderQuestionSection();
 };
 
 // add event listeners
