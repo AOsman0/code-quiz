@@ -1,3 +1,9 @@
+//Body
+const onLoadElement = document.getElementById("body-of-page");
+
+//Button
+const startButton = document.getElementById("start-quiz");
+
 // global declarations
 const questions = [
   //adding my 4 questions
@@ -16,7 +22,13 @@ let quizComplete = false;
 
 const onLoad = () => {
   // initialise local storage
+  //need the key for local storage
+  localStorage.key("trackHighScores");
+
+  //key track of an array called high scores
+
   // check if highscores exists in LS
+
   // if false then set highscores to empty array in LS
 };
 
@@ -91,6 +103,9 @@ const renderQuizCompleteSection = () => {
 };
 
 const startQuiz = () => {
+
+  //linked connected the start button
+  console.log("start-button-clicked");
   // remove start section
   // start timer
   // render timer section
@@ -98,6 +113,7 @@ const startQuiz = () => {
 };
 
 // add event listeners
-addEventListener(onclick);
 // add document on load event listener
+onLoadElement.addEventListener("click", onLoad);
 // add start button click event listener
+startButton.addEventListener("click", startQuiz);
