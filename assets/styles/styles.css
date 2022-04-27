@@ -77,4 +77,14 @@ button {
   background-color: blue;
   margin-top: 4rem;
   font-size: 3rem;
+  cursor: pointer;
+}
+
+.full-name-input {
+  border: 0.5rem solid rgb(132, 4, 4);
+  padding: 1rem 1.2rem;
+  cursor: pointer;
+  display: block;
+  width: 18rem;
+  height: 5rem;
 }
