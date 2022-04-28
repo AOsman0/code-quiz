@@ -37,6 +37,9 @@ const startSection = document.getElementById("start-section");
 //target main page
 const mainElement = document.getElementById("main");
 
+//define questions section
+const questionsSection = document.getElementById("questions");
+
 let questionIndex = 0;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
@@ -127,10 +130,34 @@ const renderQuestionSection = () => {
   const ul = document.createElement("ul");
   ul.setAttribute("class", "list of options");
 
+  //loop over options to create and append the li to ul
+  const li1 = document.createElement("ul");
+  li1.setAttribute("class", "listen-items");
+  li1.textContent = "Yes";
+
+  const li2 = document.createElement("ul");
+  li1.setAttribute("class", "listen-items");
+  li2.textContent = "No";
+
+  //append li to ul
+  ul.append(li1, li2);
+
   //create div and append button
   const div = document.createElement("div");
   div.setAttribute("class", "btn-control");
-  // append section to main
+
+  //creating button
+  const btn = document.createElement("btn");
+  btn.setAttribute("class", "btn-control");
+  //button other attribute
+  btn.setAttribute("id", "next-button");
+
+  //append button to div
+  div.append(btn);
+  //append h2 , ul and div to section
+  questionSection.append(h2, ul, div);
+  // append question section to main element
+  mainElement.append(questionSection);
 
   // add click event listener on #question-section
 };
