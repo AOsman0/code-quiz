@@ -25,7 +25,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   font-family: Arial, Helvetica, sans-serif;
-  background: linear-gradient(silver, red, black);
+  background: linear-gradient(silver, rgb(87, 87, 87), black);
 }
 
 .main {
@@ -55,8 +55,9 @@ body {
 .quiz-title {
   font-size: 4rem;
   text-align: center;
-  color: red;
+  color: rgb(0, 112, 204);
   padding-top: 1rem;
+  font-family: Arial;
 }
 
 .quiz-info {
@@ -69,22 +70,63 @@ body {
 }
 
 button {
-  margin: 0 auto;
-  display: block;
-  width: 36rem;
-  height: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   color: black;
-  background-color: blue;
-  margin-top: 4rem;
+  width: 20rem;
+  background-color: rgb(0, 255, 0);
   font-size: 3rem;
   cursor: pointer;
+  margin-left: 40rem;
 }
 
 .full-name-input {
-  border: 0.5rem solid rgb(132, 4, 4);
+  border: 0.5rem solid rgb(0, 255, 26);
   padding: 1rem 1.2rem;
   cursor: pointer;
   display: block;
   width: 18rem;
   height: 5rem;
+  margin-left: 20rem;
+  margin-bottom: 5rem;
+}
+
+#timer-section {
+  color: rgb(0, 149, 255);
+  border-style: solid;
+  width: 19rem;
+  margin-left: 40rem;
+  margin-top: 5rem;
+}
+
+.question {
+  font-family: Arial;
+  color: rgb(0, 112, 204);
+}
+
+.list-items {
+  color: black;
+}
+
+@media screen and (max-width: 570px) {
+  button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: black;
+    width: 20rem;
+    background-color: rgb(0, 255, 0);
+    font-size: 3rem;
+    cursor: pointer;
+    margin-left: 17rem;
+  }
+
+  #timer-section {
+    color: rgb(0, 149, 255);
+    border-style: solid;
+    width: 19rem;
+    margin-left: 0rem;
+    margin-top: 5rem;
+  }
 }

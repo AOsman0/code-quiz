@@ -1,34 +1,41 @@
 //Body
-const onLoadElement = document.getElementById("body-of-page");
+const bodyElement = document.getElementById("body");
 
 //Button
 const startButton = document.getElementById("start-quiz");
 
-// global declarations
-const questions = [
-  //adding my 4 questions
-  //question 1
-  "Which one of these is a semantic HTML element?",
-  "What does HTML stand for?",
-  "which one of the options is not a Keyword?",
-  "What's and important rule to remember when giving variable names?",
-  "What does the Cd command stand for in terminal?",
-  "Which is not an example of a type of viewport?",
-  "What is the right github command to clone from a repo?",
-];
+//Main page element targeted
+const mainElement = document.getElementById("main");
+
+//start quiz section targetted
+const startElement = document.getElementById("start-quiz-section");
+
 let questionIndex = 0;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 
+//all options
+const options = [];
+
+// global declarations of questions
+const questions = [
+  {
+    questions: "What does HTML stand for?",
+    answer: [
+      "HyperText Markup Language",
+      "HyperTerminology Markup Language",
+      "HypeTurn Marble Language",
+      "HyperText Markup Linguistics",
+    ],
+    rightAnswer:
+  },
+];
+
 const onLoad = () => {
   // initialise local storage
   //need the key for local storage
-  localStorage.key("trackHighScores");
-
   //key track of an array called high scores
-
   // check if highscores exists in LS
-
   // if false then set highscores to empty array in LS
 };
 
@@ -85,6 +92,7 @@ const renderQuestionSection = () => {
   // use HTML as guide and build in JS
 
   // append section to main
+
   // add click event listener on #question-section
 };
 
@@ -113,9 +121,8 @@ const startQuiz = () => {
   //linked connected the start button
   console.log("start-button-clicked");
   // remove start section
-
-  // call start timer
   removeStartSection();
+  startElement.remove();
 
   // render timer section
   renderTimerSection();
@@ -126,6 +133,6 @@ const startQuiz = () => {
 
 // add event listeners
 // add document on load event listener
-onLoadElement.addEventListener("click", onLoad);
+bodyElement.addEventListener("click", onLoad);
 // add start button click event listener
 startButton.addEventListener("click", startQuiz);
