@@ -1,22 +1,3 @@
-//target start button
-const startButton = document.getElementById("start-btn");
-
-//target start quiz section
-const startSection = document.getElementById("start-section");
-
-//target main page
-const mainElement = document.getElementById("main");
-
-let questionIndex = 0;
-let timerValue = 10 * questions.length;
-let quizComplete = false;
-
-//store answers in array
-const rightAnswer = [];
-
-// store all options
-const options = [];
-
 // global declarations of questions
 const questions = [
   {
@@ -62,6 +43,25 @@ const questions = [
   },
 ];
 
+//target start button
+const startButton = document.getElementById("start-btn");
+
+//target start quiz section
+const startSection = document.getElementById("start-section");
+
+//target main page
+const mainElement = document.getElementById("main");
+
+let questionIndex = 0;
+let timerValue = 10 * questions.length;
+let quizComplete = false;
+
+//store answers in array
+const rightAnswer = [];
+
+// store all options
+const options = [];
+
 const onLoad = () => {
   // initialise local storage
   //need the key for local storage
@@ -73,6 +73,7 @@ const onLoad = () => {
 //function to remove start section
 const removeStartSection = () => {
   console.log("remove-start-section");
+  startSection.remove();
 };
 
 const startTimer = () => {
@@ -119,6 +120,10 @@ const renderTimerSection = () => {
 
 //function to render question to page
 const renderQuestionSection = () => {
+  //get the question
+  //in the questions array use the index number to get the question
+  //store that in variable
+  const question = questions[questionIndex];
   console.log("render-question");
   // use HTML as guide and build in JS
   // DOM tree and appending
@@ -130,7 +135,7 @@ const renderQuestionSection = () => {
   //h2 appending
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "question-head");
-  h2.textContent = "";
+  h2.textContent = question.questions;
 
   //TODO:Make this a dynamic question
   //create ul and 4 list
@@ -183,6 +188,5 @@ const startQuiz = () => {
 
 // // add event listeners
 // // add document on load event listener
-// bodyElement.addEventListener("click", onLoad);
 // add start button click event listener
 startButton.addEventListener("click", startQuiz);
