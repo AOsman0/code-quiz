@@ -1,45 +1,30 @@
 // global declarations of questions
 const questions = [
   {
-    questions: "What does HTML stand for?",
-    options: [
-      "HyperText Markup Language",
-      "HyperTerminology Markup Language",
-      "HypeTurn Marble Language",
-      "HyperText Markup Linguistics",
-    ],
-    rightAnswer: "HyperText Markup Language",
+    questions: "Does HTML stand for HyperText Markup Language?",
+    options: ["Yes", "No"],
+    rightAnswer: "Yes",
   },
   {
-    questions: "Which one the following is not a  HTML Semantic Element?",
-    options: ["aside", "li", "header", "footer"],
-    rightAnswer: "li",
+    questions: "Is aside a HTML semantic element?",
+    options: ["Yes", "No"],
+    rightAnswer: "Yes",
   },
   {
-    questions: "What does CSS stand for?",
-    options: [
-      "Creating Styling Sheets",
-      "Cascading Style Sheet",
-      "Cascading Styling Shorts",
-      "Creating Styles Sheet",
-    ],
-    rightAnswer: "Cascading Style Sheet",
+    questions: "Does CSS stand for Cascading Style Sheet?",
+    options: ["Yes", "No"],
+    rightAnswer: "Yes",
   },
   {
     questions:
-      "What is something important to remember when giving a name of a variable in JavaScript?",
-    options: ["camelcasing", "parenthesis", "numbers", "string"],
-    rightAnswer: "camelcasing",
+      "is numbers important when giving a name of a variable in JavaScript?",
+    options: ["Yes", "No"],
+    rightAnswer: "No",
   },
   {
-    questions: "what does is isNaN() function do?",
-    options: [
-      "determines whether a value is NaN or not",
-      "used to describe a background-color",
-      "a mathematics operator",
-      "all of the above",
-    ],
-    rightAnswer: "determines whether a value is NaN or not",
+    questions: "is isNaN() function used to describe a background-color?",
+    options: ["Yes", "No"],
+    rightAnswer: "No",
   },
 ];
 
@@ -133,15 +118,14 @@ const renderQuestionSection = () => {
   questionSection.setAttribute("class", questions);
   //create h2
   //h2 appending
+  //dynamic title
   const h2 = document.createElement("h2");
   h2.setAttribute("class", "question-head");
   h2.textContent = question.questions;
-
-  //TODO:Make this a dynamic question
   //create ul and 4 list
   //appending unordered list
   const ul = document.createElement("ul");
-  ul.setAttribute("class", "options");
+  ul.setAttribute("class", "list of options");
 
   //create div and append button
   const div = document.createElement("div");
