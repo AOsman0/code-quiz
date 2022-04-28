@@ -28,17 +28,15 @@
     <!-- main tag -->
     <main id="main">
       <!-- section of the page -->
-      <section id="start-quiz-section">
-        <div class="quizContainer">
-          <h1 class="quiz-title">Coding Quiz</h1>
-          <p class="quiz-info">
-            To begin this quiz you will need to press this start button.There
-            will a timer running and you must try to attempt all of the
-            questions. You will see your results in the end. Good Luck!!! 😏
-          </p>
-        </div>
-        <div>
-          <button id="start-quiz">Start!</button>
+      <section id="start-section">
+        <h1 class="quiz-title">Coding Quiz</h1>
+        <p class="quiz-info">
+          To begin this quiz you will need to press this start button.There will
+          a timer running and you must try to attempt all of the questions. You
+          will see your results in the end. Good Luck!!! 😏
+        </p>
+        <div class="btn-controller">
+          <button class="start-quiz" id="start-btn">Start!</button>
         </div>
       </section>
 
@@ -48,15 +46,18 @@
       </section>
 
       <!-- questions -->
-      <section class="questions"></section>
-      <h2 class="question">questions</h2>
-      <ul class="list of options">
-        <li class="list-items">options</li>
-        <li class="list-items"></li>
-        <li class="list-items"></li>
-        <li class="list-items"></li>
-      </ul>
-
+      <section class="questions">
+        <h2 class="question-head"></h2>
+        <ul class="list of options">
+          <li class="list-items">options</li>
+          <li class="list-items"></li>
+          <li class="list-items"></li>
+          <li class="list-items"></li>
+        </ul>
+        <div class="btn-control">
+          <button class="btn" id="next-button">Next</button>
+        </div>
+      </section>
       <!-- form section -->
       <section id="form-selection">
         <form>

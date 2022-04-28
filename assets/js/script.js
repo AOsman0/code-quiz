@@ -1,14 +1,11 @@
-//Body
-const bodyElement = document.getElementById("body");
+//target start button
+const startButton = document.getElementById("start-btn");
 
-//Button
-const startButton = document.getElementById("start-quiz");
+//target start quiz section
+const startSection = document.getElementById("start-section");
 
-//Main page element targeted
+//target main page
 const mainElement = document.getElementById("main");
-
-//start quiz section targetted
-const startElement = document.getElementById("start-quiz-section");
 
 let questionIndex = 0;
 let timerValue = 10 * questions.length;
@@ -124,7 +121,26 @@ const renderTimerSection = () => {
 const renderQuestionSection = () => {
   console.log("render-question");
   // use HTML as guide and build in JS
+  // DOM tree and appending
+  //create section
+  //appended section
+  const questionSection = document.createElement("section");
+  questionSection.setAttribute("class", questions);
+  //create h2
+  //h2 appending
+  const h2 = document.createElement("h2");
+  h2.setAttribute("class", "question-head");
+  h2.textContent = "";
 
+  //TODO:Make this a dynamic question
+  //create ul and 4 list
+  //appending unordered list
+  const ul = document.createElement("ul");
+  ul.setAttribute("class", "options");
+
+  //create div and append button
+  const div = document.createElement("div");
+  div.setAttribute("class", "btn-control");
   // append section to main
 
   // add click event listener on #question-section
@@ -153,20 +169,20 @@ const renderQuizCompleteSection = () => {
 
 const startQuiz = () => {
   //linked connected the start button
-  console.log("start-button-clicked");
+  console.log("start-btn-clicked");
   // remove start section
-  removeStartSection();
-  startElement.remove();
 
+  removeStartSection();
   // render timer section
+
   renderTimerSection();
 
   // render question section called
   renderQuestionSection();
 };
 
-// add event listeners
-// add document on load event listener
-bodyElement.addEventListener("click", onLoad);
+// // add event listeners
+// // add document on load event listener
+// bodyElement.addEventListener("click", onLoad);
 // add start button click event listener
 startButton.addEventListener("click", startQuiz);
