@@ -69,64 +69,24 @@ body {
   border-color: dimgrey;
 }
 
-button {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  color: black;
-  width: 20rem;
-  background-color: rgb(0, 255, 0);
-  font-size: 3rem;
-  cursor: pointer;
-  margin-left: 40rem;
+.btn-controller {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
 }
 
-.full-name-input {
-  border: 0.5rem solid rgb(0, 255, 26);
-  padding: 1rem 1.2rem;
-  cursor: pointer;
-  display: block;
-  width: 18rem;
-  height: 5rem;
-  margin-left: 20rem;
-  margin-bottom: 5rem;
-}
-
-#timer-section {
-  color: rgb(0, 149, 255);
-  border-style: solid;
-  width: 19rem;
-  margin-left: 40rem;
-  margin-top: 5rem;
-}
-
-.question {
-  font-family: Arial;
+.start-quiz {
   color: rgb(0, 112, 204);
+  text-transform: uppercase;
+  width: 18rem;
+  font-size: 2rem;
+  background-color: black;
+}
+.start-quiz:hover {
+  cursor: pointer;
+  background-color: var(--celadon);
+  box-shadow: 1rem var(--mint-green);
 }
 
-.list-items {
-  color: black;
-}
+/* styled button */
 
-@media screen and (max-width: 570px) {
-  button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: black;
-    width: 20rem;
-    background-color: rgb(0, 255, 0);
-    font-size: 3rem;
-    cursor: pointer;
-    margin-left: 17rem;
-  }
 
-  #timer-section {
-    color: rgb(0, 149, 255);
-    border-style: solid;
-    width: 19rem;
-    margin-left: 0rem;
-    margin-top: 5rem;
-  }
-}
