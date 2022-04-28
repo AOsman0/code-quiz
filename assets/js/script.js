@@ -14,20 +14,54 @@ let questionIndex = 0;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 
-//all options
+//store answers in array
+const rightAnswer = [];
+
+// store all options
 const options = [];
 
 // global declarations of questions
 const questions = [
   {
     questions: "What does HTML stand for?",
-    answer: [
+    options: [
       "HyperText Markup Language",
       "HyperTerminology Markup Language",
       "HypeTurn Marble Language",
       "HyperText Markup Linguistics",
     ],
-    rightAnswer:
+    rightAnswer: "HyperText Markup Language",
+  },
+  {
+    questions: "Which one the following is not a  HTML Semantic Element?",
+    options: ["aside", "li", "header", "footer"],
+    rightAnswer: "li",
+  },
+  {
+    questions: "What does CSS stand for?",
+    options: [
+      "Creating Styling Sheets",
+      "Cascading Style Sheet",
+      "Cascading Styling Shorts",
+      "Creating Styles Sheet",
+    ],
+    rightAnswer: "Cascading Style Sheet",
+  },
+  {
+    questions:
+      "What is something important to remember when giving a name of a variable in JavaScript?",
+    options: ["camelcasing", "parenthesis", "numbers", "string"],
+    rightAnswer: "camelcasing",
+  },
+  {
+    questions: "what does is isNaN() function do?",
+    options: [
+      "determines whether a value is NaN or not",
+      "used to describe a background-color",
+      "a mathematics operator",
+      "all of the above",
+    ],
+    rightAnswer: "determines whether a value is NaN or not",
   },
 ];
 
