@@ -132,11 +132,11 @@ const renderQuestionSection = () => {
 
   //loop over options to create and append the li to ul
   const li1 = document.createElement("ul");
-  li1.setAttribute("class", "listen-items");
+  li1.setAttribute("class", "list-items");
   li1.textContent = "Yes";
 
   const li2 = document.createElement("ul");
-  li1.setAttribute("class", "listen-items");
+  li2.setAttribute("class", "list-items");
   li2.textContent = "No";
 
   //append li to ul
