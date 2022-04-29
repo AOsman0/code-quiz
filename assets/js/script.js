@@ -127,8 +127,39 @@ const handleOptionsClicked = (event) => {
   //the current target is the element the event handler is attached to
   //the element being targeted or the child is the event target
   if (target.tagName === "LI") {
+    //get option user clicked
+    const value = target.getAttribute("data-value");
+    console.log(value);
+    //get question user answered
+    //use question index from array and then .text to display the question
+    const question = [questionIndex].text;
+    console.log(question);
+    //build an answer object the contains question and answer
+    const answer = {
+      question,
+      value,
+    };
+
+    //STILL HAVE TO STORE IN LS???
+    console.log(answer);
+  }
+  //remove question before if branch
+  removeQuestion();
+
+  //check questions index if its lesser than questions array
+  if (questionIndex < questions.length - 1) {
+    //go to next question if not last question
+    //need to increment the question index by 1
+    questionIndex += 1;
+
+    //then recall same function
+    renderQuestionSection();
+  } else {
+    //if last question then render the results
+    renderForm();
   }
 };
+
 //function to render question to page
 const renderQuestionSection = () => {
   //get the question
@@ -143,7 +174,8 @@ const renderQuestionSection = () => {
   //create section
   //appended section
   const questionSection = document.createElement("section");
-  questionSection.setAttribute("class", questions);
+  questionSection.setAttribute("class", "questions");
+  questionSection.setAttribute("id", "questions-container");
   //create h2
   //h2 appending
   //dynamic title
@@ -163,7 +195,7 @@ const renderQuestionSection = () => {
 
   const li2 = document.createElement("ul");
   li2.setAttribute("class", "list-items");
-  li1.setAttribute("data-value", question.options[2]);
+  li2.setAttribute("data-value", question.options[1]);
   li2.textContent = question.options[1];
 
   //append li to ul
@@ -190,6 +222,11 @@ const renderQuestionSection = () => {
   // whenever theres a click inside of this section if the click comes from a list item only then go to next question
   //need to do event bubbling
   questionSection.addEventListener("click", handleOptionsClicked);
+};
+
+const removeQuestion = () => {
+  console.log("remove-question");
+  document.getElementById("question-container").remove;
 };
 
 const renderGameOver = () => {
