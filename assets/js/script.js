@@ -46,7 +46,7 @@ const mainElement = document.getElementById("main");
 //define questions section
 const questionsSection = document.getElementById("questions");
 
-//declare in global current question index
+//declare in global current question index to keep track of questions
 let questionIndex = 0;
 
 let timerValue = 10 * questions.length;
@@ -108,6 +108,11 @@ const renderTimerSection = () => {
   // append section to main
 };
 
+//declare handleOptionsClicked Function
+const handleOptionsClicked = () => {
+  console.log("question section clicked");
+  //
+};
 //function to render question to page
 const renderQuestionSection = () => {
   //get the question
@@ -164,6 +169,9 @@ const renderQuestionSection = () => {
   mainElement.append(questionSection);
 
   // add click event listener on #question-section
+  // whenever theres a click inside of this section if the click comes from a list item only then go to next question
+  //need to do event bubbling
+  questionSection.addEventListener("click", handleOptionsClicked);
 };
 
 const renderGameOver = () => {
