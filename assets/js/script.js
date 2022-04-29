@@ -1,3 +1,9 @@
+// store all options due options being the same
+const options = ["Yes", "No"];
+
+//store answers in array
+const rightAnswer = ["Yes", "No"];
+
 // global declarations of questions
 const questions = [
   {
@@ -12,13 +18,13 @@ const questions = [
   },
   {
     questions: "Does CSS stand for Cascading Style Sheet?",
-    options: ["Yes", "No"],
+    options: options,
     rightAnswer: "Yes",
   },
   {
     questions:
       "is numbers important when giving a name of a variable in JavaScript?",
-    options: ["Yes", "No"],
+    options: options,
     rightAnswer: "No",
   },
   {
@@ -40,15 +46,11 @@ const mainElement = document.getElementById("main");
 //define questions section
 const questionsSection = document.getElementById("questions");
 
+//declare in global current question index
 let questionIndex = 0;
+
 let timerValue = 10 * questions.length;
 let quizComplete = false;
-
-//store answers in array
-const rightAnswer = [];
-
-// store all options
-const options = [];
 
 const onLoad = () => {
   // initialise local storage
@@ -109,9 +111,11 @@ const renderTimerSection = () => {
 //function to render question to page
 const renderQuestionSection = () => {
   //get the question
+
   //in the questions array use the index number to get the question
   //store that in variable
   const question = questions[questionIndex];
+
   console.log("render-question");
   // use HTML as guide and build in JS
   // DOM tree and appending
@@ -133,11 +137,11 @@ const renderQuestionSection = () => {
   //loop over options to create and append the li to ul
   const li1 = document.createElement("ul");
   li1.setAttribute("class", "list-items");
-  li1.textContent = "Yes";
+  li1.textContent = question.options[0];
 
   const li2 = document.createElement("ul");
   li2.setAttribute("class", "list-items");
-  li2.textContent = "No";
+  li2.textContent = question.options[1];
 
   //append li to ul
   ul.append(li1, li2);
