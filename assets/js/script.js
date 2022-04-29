@@ -108,10 +108,26 @@ const renderTimerSection = () => {
   // append section to main
 };
 
+//event handler function to handle click events in question section
+//every event handler function should know what the event is
 //declare handleOptionsClicked Function
-const handleOptionsClicked = () => {
+const handleOptionsClicked = (event) => {
   console.log("question section clicked");
-  //
+
+  //get current target
+  const currentTarget = event.currentTarget;
+
+  //get target
+  const target = event.target;
+
+  console.log(currentTarget);
+  console.log(target);
+
+  //check if click originates from list item only
+  //the current target is the element the event handler is attached to
+  //the element being targeted or the child is the event target
+  if (target.tagName === "LI") {
+  }
 };
 //function to render question to page
 const renderQuestionSection = () => {
@@ -142,10 +158,12 @@ const renderQuestionSection = () => {
   //loop over options to create and append the li to ul
   const li1 = document.createElement("ul");
   li1.setAttribute("class", "list-items");
+  li1.setAttribute("data-value", question.options[0]);
   li1.textContent = question.options[0];
 
   const li2 = document.createElement("ul");
   li2.setAttribute("class", "list-items");
+  li1.setAttribute("data-value", question.options[2]);
   li2.textContent = question.options[1];
 
   //append li to ul
