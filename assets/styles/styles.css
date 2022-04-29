@@ -74,7 +74,8 @@ body {
   text-align: center;
 }
 
-.start-quiz {
+.start-quiz,
+.btn {
   color: rgb(0, 112, 204);
   text-transform: uppercase;
   width: 18rem;
@@ -89,4 +90,68 @@ body {
 
 /* styled button */
 
+/* question-styles */
 
+.question-head {
+  font-size: 4rem;
+  color: rgb(0, 112, 204);
+  font-family: Arial;
+  padding: 2rem;
+  text-align: center;
+  list-style: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 1rem;
+  margin: 3rem;
+}
+.list-items {
+  font-size: 2rem;
+  color: rgb(0, 112, 204);
+  font-family: Arial;
+  padding: 1rem;
+  text-align: center;
+  list-style: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.5rem;
+  margin: 6rem;
+}
+
+.btn-control {
+  text-align: center;
+}
+
+/* Time no styling */
+
+/* form styling */
+#score {
+  color: rgb(0, 112, 204);
+  font-size: 2rem;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.2rem;
+  margin-top: 5rem;
+  max-width: 25rem;
+  background-color: black;
+}
+.full-name-input {
+  color: rgb(0, 112, 204);
+  font-size: 2rem;
+  text-align: center;
+  border-style: solid;
+  border-width: 0.2rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+  max-width: 30rem;
+  background-color: black;
+}
+.btn-2 {
+  color: rgb(0, 112, 204);
+  font-size: 2rem;
+  text-align: center;
+  background-color: black;
+}
+
+.alert {
+  color: rgb(0, 112, 204);
+}
