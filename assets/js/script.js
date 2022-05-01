@@ -141,6 +141,8 @@ const handleOptionsClicked = (event) => {
     };
 
     //STILL HAVE TO STORE IN LS???
+    // local storage is built into the browser
+    //we want to set answers in LS
     console.log(answer);
   }
   //remove question before if branch
@@ -226,7 +228,7 @@ const renderQuestionSection = () => {
 
 const removeQuestion = () => {
   console.log("remove-question");
-  document.getElementById("question-container").remove;
+  document.getElementById("questions-container").remove();
 };
 
 const renderGameOver = () => {
@@ -250,9 +252,29 @@ const renderQuizCompleteSection = () => {
   // append section to main
 };
 
+const intialiseLocalStorage = () => {
+  //get results from local storage
+  //local storage interface built in
+  //whenever you get something you want to parse the value before it gets to LS
+  const quizResultsFromlS = JSON.parse(localStorage.getItem("quizResults"));
+  console.log(quizResultsFromlS);
+
+  //check for the falseyness
+  if (quizResultsFromlS) {
+    //if not exist LS to set LS to have results in an empty array
+    //where going to use the set method here
+    //we use the the JSON object and use the stringify method and add make sure when i set i stringify the value and key
+  }
+  localStorage.setItem("quizResultsFromlS", JSON.stringify([]));
+};
+
 const startQuiz = () => {
   //linked connected the start button
   console.log("start-btn-clicked");
+
+  //initalise local storage
+  intialiseLocalStorage();
+
   // remove start section
 
   removeStartSection();
