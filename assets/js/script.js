@@ -34,9 +34,6 @@ const questions = [
   },
 ];
 
-//target start button
-const startButton = document.getElementById("start-btn");
-
 //target start quiz section
 const startSection = document.getElementById("start-section");
 
@@ -62,12 +59,31 @@ const startTimer = () => {
   // declare function to execute every 1 sec
   const countdown = () => {
     // decrement timer value
+    timerNum -= 1;
     // if quizComplete is true then stop timer
+    if (quizFinished) {
+      clearInterval(timerStop);
+    } else {
+      const timerClock = document.getElementById("timer-span");
+      timerClock.textContent = timerNum;
+    }
     // check if timer reaches 0
-    // if true render game over
+    if (timerNum === 0) {
+      // if true render game over
+      clearInterval(timerStop);
+      document.getElementById("question-section").remove();
+      renderGameOverSection();
+    }
   };
+};
+// setInterval of 1000ms (1s)
+const timerStop = setInterval(countdown, 1000);
 
-  // setInterval of 1000ms (1s)
+const renderGameOverSection = () => {
+  document.getElementById("timer-section").remove();
+
+  const gameOverSection = document.createElement("section");
+  gameOverSection.setAttribute("class");
 };
 
 const validateAnswer = () => {
@@ -97,6 +113,16 @@ const handleFormSubmit = () => {
 const renderTimerSection = () => {
   console.log("render-timer");
   // use HTML as guide and build in JS
+  const timerSection = document.createElement("section");
+  timerSection.setAttribute("id", "timer-section");
+
+  const timeRemaining = document.createElement("p");
+  timeRemaining.setAttribute("class", "time-left");
+  timeRemaining.textContent = "Time-Remaining:";
+
+  const timerSpan = document.createElement("span");
+  timerSpan.setAttribute("id", "timer-span");
+
   // append section to main
 };
 
