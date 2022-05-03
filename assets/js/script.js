@@ -52,14 +52,6 @@ let questionIndex = 0;
 let timerValue = 10 * questions.length;
 let quizComplete = false;
 
-const onLoad = () => {
-  // initialise local storage
-  //need the key for local storage
-  //key track of an array called high scores
-  // check if highscores exists in LS
-  // if false then set highscores to empty array in LS
-};
-
 //function to remove start section
 const removeStartSection = () => {
   console.log("remove-start-section");
@@ -143,6 +135,8 @@ const handleOptionsClicked = (event) => {
     //STILL HAVE TO STORE IN LS???
     // local storage is built into the browser
     //we want to set answers in LS
+    storeAnswerInLs(answer);
+
     console.log(answer);
   }
   //remove question before if branch
@@ -243,8 +237,47 @@ const renderAlert = (message, status) => {
 
 const renderForm = () => {
   // use HTML as guide and build in JS
+  console.log("render form");
   // append section to main
+  const section = document.createElement("section");
+  section.setAttribute("id", "form-selection");
+  section.setAttribute("class", "form-selector");
+
+  //use DOM to append
+  const h6 = document.createElement("h6");
+  h6.setAttribute("class", "form-scores");
+  h6.textContent = "Form for your score";
+
+  const form = document.createElement("form");
+
+  const inputDiv = document.createElement("div");
+  inputDiv.setAttribute("class", "full-name-input");
+
+  const input = document.createElement("input");
+  input.setAttribute("id", "full-name-1");
+  input.setAttribute("class", "name");
+  input.setAttribute("type", "text");
+  input.setAttribute("placeholder", "full-name");
+
+  inputDiv.append(input);
+
+  const buttonDiv = document.createElement("div");
+  buttonDiv.setAttribute("class", "btn-form");
+
+  const button = document.createElement("button");
+  button.setAttribute("class", "bnt-2");
+  button.setAttribute("type", "submit");
+  button.textContent = "Submit";
+
+  //appending button div to button
+  buttonDiv.append(button);
+
+  form.append(inputDiv, buttonDiv);
+  section.append(h6, form);
+  mainElement.append(section);
+
   // add submit event handler to form
+  form.addEventListener("submit", handleFormSubmit);
 };
 
 const renderQuizCompleteSection = () => {
@@ -284,6 +317,19 @@ const startQuiz = () => {
 
   // render question section called
   renderQuestionSection();
+};
+
+const storeAnswerInLs = () => {
+  //store answer in Local Storage
+
+  //get feedback results from LS
+  JSON.parse(localStorage.getItem("quizResultsFromlS"));
+
+  //push answer in to the answer array
+  quizResultsFromlS.push(answer);
+
+  //then set feedback Results in LS
+  localStorage.setItem("quizResultsFromlS", JSON.stringify(quizResultsFromlS));
 };
 
 // // add event listeners
