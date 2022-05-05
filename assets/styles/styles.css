@@ -186,3 +186,32 @@ body {
   color: rgb(0, 112, 204);
   font-size: 2rem;
 }
+
+.table-high-scores {
+  color: rgb(0, 112, 204);
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-scores {
+  border-style: solid;
+  border-color: black;
+  border-width: 0.3rem;
+}
+
+.table-heading,
+.table-data {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  width: 20rem;
+  border-style: solid;
+  border-color: black;
+}

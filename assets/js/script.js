@@ -34,6 +34,14 @@ const questions = [
   },
 ];
 
+//declare in global current question index to keep track of questions
+let questionIndex = 0;
+
+let timer = 60;
+let quizComplete = false;
+
+const timerSpan = document.getElementById("timer-span");
+
 //target start quiz section
 const startSection = document.getElementById("start-section");
 
@@ -43,12 +51,6 @@ const mainElement = document.getElementById("main");
 //define questions section
 const questionsSection = document.getElementById("questions");
 
-//declare in global current question index to keep track of questions
-let questionIndex = 0;
-
-let timerValue = 10 * questions.length;
-let quizComplete = false;
-
 //function to remove start section
 const removeStartSection = () => {
   console.log("remove-start-section");
@@ -57,55 +59,38 @@ const removeStartSection = () => {
 
 const startTimer = () => {
   // declare function to execute every 1 sec
-  const countdown = () => {
-    // decrement timer value
-    timerNum -= 1;
+  const timerSpan = document.getElementById("time-span");
+  // decrement timer value
+  const timerTick = () => {
+    timer -= 1;
+
     // if quizComplete is true then stop timer
-    if (quizFinished) {
-      clearInterval(timerStop);
-    } else {
-      const timerClock = document.getElementById("timer-span");
-      timerClock.textContent = timerNum;
-    }
+    timerSpan.textContent = `Time Remaining: ${timer}`;
     // check if timer reaches 0
-    if (timerNum === 0) {
+    if (timer === 0) {
       // if true render game over
-      clearInterval(timerStop);
-      document.getElementById("question-section").remove();
-      renderGameOverSection();
+      clearInterval(timerId);
+    }
+    if (questionIndex === questions.length - 1) {
+      clearInterval(timerId);
     }
   };
-};
-// setInterval of 1000ms (1s)
-const timerStop = setInterval(countdown, 1000);
-
-const renderGameOverSection = () => {
-  document.getElementById("timer-section").remove();
-
-  const gameOverSection = document.createElement("section");
-  gameOverSection.setAttribute("class");
+  // setInterval of 1000ms (1s)
+  const timerId = setInterval(timerTick, 1000);
 };
 
-const validateAnswer = () => {
-  // get answer clicked from user
-  // get the correct answer for question
-  // compare the 2 answers
-  // if incorrect subtract 5 seconds from timerValue
-  // if incorrect render error alert with message and status
-  // if correct render success alert with message and status
-  // set timeout for 500ms and then go to next question
-  // if question is last question set quizComplete to true and then render form
-  // if question is not last question then increment question index and render next question
-};
-
-const handleFormSubmit = () => {
+const handleFormSubmit = (event) => {
+  event.preventDefault();
   // get value from input
-  // check if empty then render error alert with message and status
+  const fullName = document.getElementById("fullName").value;
+
   // if not empty then create the score object
-  // {
-  //   fullName: "Bob Smith",
-  //   score: 25
-  // }
+  if (fullName !== "") {
+    const user = {
+      userName: fullName,
+      score: timer,
+    };
+  }
   // push score object to LS
   // render quizCompleteSection
 };
@@ -116,14 +101,23 @@ const renderTimerSection = () => {
   const timerSection = document.createElement("section");
   timerSection.setAttribute("id", "timer-section");
 
-  const timeRemaining = document.createElement("p");
-  timeRemaining.setAttribute("class", "time-left");
-  timeRemaining.textContent = "Time-Remaining:";
+  const timeRemaining = document.createElement("div");
+  timeRemaining.setAttribute("class", "timer");
 
-  const timerSpan = document.createElement("span");
-  timerSpan.setAttribute("id", "timer-span");
+  const timeSpan = document.createElement("span");
+  timeSpan.setAttribute("id", "time-span");
+  timeSpan.setAttribute("class", "time-span-class");
+  timeSpan.textContent = `Time Remaining: ${timer}`;
+
+  //append span to time remaining then time remaining to section
+  timeRemaining.appendChild(timeSpan);
+
+  timerSection.append(timeRemaining);
 
   // append section to main
+  mainElement.append(timerSection);
+
+  startTimer();
 };
 
 //event handler function to handle click events in question section
@@ -138,20 +132,17 @@ const handleOptionsClicked = (event) => {
   //get target
   const target = event.target;
 
-  console.log(currentTarget);
-  console.log(target);
-
   //check if click originates from list item only
   //the current target is the element the event handler is attached to
   //the element being targeted or the child is the event target
-  if (target.tagName === "LI") {
+  if (target.tagName === "UL") {
     //get option user clicked
     const value = target.getAttribute("data-value");
     console.log(value);
     //get question user answered
     //use question index from array and then .text to display the question
     const question = [questionIndex].text;
-    console.log(question);
+    // console.log(question);
     //build an answer object the contains question and answer
     const answer = {
       question,
@@ -161,9 +152,28 @@ const handleOptionsClicked = (event) => {
     //STILL HAVE TO STORE IN LS???
     // local storage is built into the browser
     //we want to set answers in LS
-    storeAnswerInLs(answer);
+    // storeAnswerInLs(answer);
 
-    console.log(answer);
+    // console.log(answer);
+
+    // get the correct answer for question
+    const correctAnswer = questions[questionIndex].rightAnswer;
+
+    // compare the 2 answers
+    if (value === correctAnswer) {
+      // if correct render success alert with message and status
+      // do this in java script and potentially HTML
+      console.log("well done");
+    }
+    // if incorrect subtract 5 seconds from timerValue
+    else {
+      console.log("incorrect");
+      // if incorrect subtract 5 seconds from timerValue
+      timer -= 5;
+
+      // if incorrect render error alert with message and status
+      //have a render alert function in java script and my HTML
+    }
   }
   //remove question before if branch
   removeQuestion();
@@ -251,16 +261,6 @@ const removeQuestion = () => {
   document.getElementById("questions-container").remove();
 };
 
-const renderGameOver = () => {
-  // use HTML as guide and build in JS
-  // append section to main
-};
-
-const renderAlert = (message, status) => {
-  // use HTML as guide and build in JS
-  // append div to #question-section
-};
-
 const renderForm = () => {
   // use HTML as guide and build in JS
   console.log("render form");
@@ -306,11 +306,6 @@ const renderForm = () => {
   form.addEventListener("submit", handleFormSubmit);
 };
 
-const renderQuizCompleteSection = () => {
-  // use HTML as guide and build in JS
-  // append section to main
-};
-
 const intialiseLocalStorage = () => {
   //get results from local storage
   //local storage interface built in
@@ -345,20 +340,19 @@ const startQuiz = () => {
   renderQuestionSection();
 };
 
-const storeAnswerInLs = () => {
-  //store answer in Local Storage
+// const storeAnswerInLs = () => {
+//   //store answer in Local Storage
 
-  //get feedback results from LS
-  JSON.parse(localStorage.getItem("quizResultsFromlS"));
+//   //get feedback results from LS
+//   JSON.parse(localStorage.getItem("quizResultsFromlS"));
 
-  //push answer in to the answer array
-  quizResultsFromlS.push(answer);
+//   //push answer in to the answer array
+//   quizResultsFromlS.push(answer);
 
-  //then set feedback Results in LS
-  localStorage.setItem("quizResultsFromlS", JSON.stringify(quizResultsFromlS));
-};
+//   //then set feedback Results in LS
+//   localStorage.setItem("quizResultsFromlS", JSON.stringify(quizResultsFromlS));
+// };
 
-// // add event listeners
-// // add document on load event listener
-// add start button click event listener
-startButton.addEventListener("click", startQuiz);
+// add event listeners
+// add document on load event listener
+startSection.addEventListener("click", startQuiz);
