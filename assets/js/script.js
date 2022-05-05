@@ -272,9 +272,10 @@ const renderForm = () => {
   //use DOM to append
   const h6 = document.createElement("h6");
   h6.setAttribute("class", "form-scores");
-  h6.textContent = "Form for your score";
+  h6.textContent = "Please Input Details And Click Submit To View Score:";
 
   const form = document.createElement("form");
+  form.setAttribute("class", "form-1");
 
   const inputDiv = document.createElement("div");
   inputDiv.setAttribute("class", "full-name-input");
@@ -288,7 +289,7 @@ const renderForm = () => {
   inputDiv.append(input);
 
   const buttonDiv = document.createElement("div");
-  buttonDiv.setAttribute("class", "btn-form");
+  buttonDiv.setAttribute("id", "btn-form");
 
   const button = document.createElement("button");
   button.setAttribute("class", "bnt-2");
