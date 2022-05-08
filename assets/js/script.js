@@ -39,6 +39,7 @@ let questionIndex = 0;
 
 let timer = 60;
 let quizComplete = false;
+let highScores = [];
 
 const timerSpan = document.getElementById("timer-span");
 
@@ -82,17 +83,20 @@ const startTimer = () => {
 const handleFormSubmit = (event) => {
   event.preventDefault();
   // get value from input
-  const fullName = document.getElementById("fullName").value;
+  const fullName = document.getElementById("full-name-1").value;
 
   // if not empty then create the score object
-  if (fullName !== "") {
+  if (fullName !== "" && fullName !== undefined && fullName !== null) {
     const user = {
       userName: fullName,
       score: timer,
     };
+    // push user to highscores
+    highScores.push(user);
+    console.log(JSON.stringify(highScores));
+    //write to to LS
+    localStorage.setItem("highScores", JSON.stringify(highScores));
   }
-  // push score object to LS
-  // render quizCompleteSection
 };
 
 const renderTimerSection = () => {
@@ -148,13 +152,6 @@ const handleOptionsClicked = (event) => {
       question,
       value,
     };
-
-    //STILL HAVE TO STORE IN LS???
-    // local storage is built into the browser
-    //we want to set answers in LS
-    // storeAnswerInLs(answer);
-
-    // console.log(answer);
 
     // get the correct answer for question
     const correctAnswer = questions[questionIndex].rightAnswer;
@@ -309,18 +306,16 @@ const renderForm = () => {
 
 const intialiseLocalStorage = () => {
   //get results from local storage
-  //local storage interface built in
-  //whenever you get something you want to parse the value before it gets to LS
-  const quizResultsFromlS = JSON.parse(localStorage.getItem("quizResults"));
-  console.log(quizResultsFromlS);
+  highScores = JSON.parse(localStorage.getItem("highScores"));
+  console.log("highscores from LS: " + highScores);
 
   //check for the falseyness
-  if (quizResultsFromlS) {
+  if (!highScores) {
     //if not exist LS to set LS to have results in an empty array
+    localStorage.setItem("highScores", JSON.stringify([]));
     //where going to use the set method here
     //we use the the JSON object and use the stringify method and add make sure when i set i stringify the value and key
   }
-  localStorage.setItem("quizResultsFromlS", JSON.stringify([]));
 };
 
 const startQuiz = () => {
@@ -340,19 +335,6 @@ const startQuiz = () => {
   // render question section called
   renderQuestionSection();
 };
-
-// const storeAnswerInLs = () => {
-//   //store answer in Local Storage
-
-//   //get feedback results from LS
-//   JSON.parse(localStorage.getItem("quizResultsFromlS"));
-
-//   //push answer in to the answer array
-//   quizResultsFromlS.push(answer);
-
-//   //then set feedback Results in LS
-//   localStorage.setItem("quizResultsFromlS", JSON.stringify(quizResultsFromlS));
-// };
 
 // add event listeners
 // add document on load event listener

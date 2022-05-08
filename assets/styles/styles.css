@@ -179,8 +179,25 @@ body {
   border-width: 0.3rem;
 }
 
-.table-heading,
-.table-data {
+.table-heading-1,
+.table-data-1 {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  width: 20rem;
+  border-style: solid;
+  border-color: black;
+}
+
+.table-heading-2 {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  width: 20rem;
+  border-style: solid;
+  border-color: black;
+}
+.table-data-2{
   font-size: 3rem;
   color: rgb(0, 112, 204);
   text-align: center;
