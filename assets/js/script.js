@@ -71,7 +71,6 @@ const startTimer = () => {
     timerSpan.textContent = `Time Remaining: ${timer}`;
     // check if timer reaches 0
     if (timer === 0) {
-      // if true render game over
       clearInterval(timerId);
       removeQuestion();
       console.log("RENDER GAME OVER");
