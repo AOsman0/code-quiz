@@ -42,26 +42,34 @@ const renderHighScores = () => {
   tableHeaderScore.textContent = "Score";
   //appended the table header elements to the table row
   tableRow.append(tableHeaderName, tableHeaderScore);
+  tableScores.append(tableRow);
+  //got highscores from LS
+  const highScoreData = JSON.parse(localStorage.getItem("highScores"));
+  console.log(highScoreData);
 
-  //table row 2
-  const tableResult = document.createElement("tr");
-  tableResult.setAttribute("class", "table-result");
+  highScoreData.forEach((score) => {
+    //table row 2
+    const tableResult = document.createElement("tr");
+    tableResult.setAttribute("class", "table-result");
 
-  const tableDataName = document.createElement("td");
-  tableDataName.setAttribute("class", "table-data-1");
-  // set content to be name
-  // get name from local storage
+    const tableDataName = document.createElement("td");
+    tableDataName.setAttribute("class", "table-data-1");
+    tableDataName.textContent = score.userName;
+    // set content to be name
+    // get name from local storage
 
-  const tableDataScore = document.createElement("td");
-  tableDataScore.setAttribute("class", "table-data-2");
-  //set content to be timer
-  // get timer from local storage
+    const tableDataScore = document.createElement("td");
+    tableDataScore.setAttribute("class", "table-data-2");
+    tableDataScore.textContent = score.score;
+    //set content to be timer
+    // get timer from local storage
 
-  //appended table data to other table row
-  tableResult.append(tableDataName, tableDataScore);
-
-  //appended table rows to the table
-  tableScores.append(tableRow, tableResult);
+    //appended table data to other table row
+    tableResult.append(tableDataName, tableDataScore);
+    console.log(score);
+    //appended table rows to the table
+    tableScores.append(tableResult);
+  });
 
   tableContainer.append(tableScores);
 

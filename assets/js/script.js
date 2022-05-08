@@ -28,7 +28,7 @@ const questions = [
     rightAnswer: "No",
   },
   {
-    questions: "is isNaN() function used to describe a background-color?",
+    questions: "is isNaN function used to describe a background-color?",
     options: ["Yes", "No"],
     rightAnswer: "No",
   },
@@ -37,7 +37,7 @@ const questions = [
 //declare in global current question index to keep track of questions
 let questionIndex = 0;
 
-let timer = 60;
+let timer = 0;
 let quizComplete = false;
 let highScores = [];
 
@@ -51,6 +51,11 @@ const mainElement = document.getElementById("main");
 
 //define questions section
 const questionsSection = document.getElementById("questions");
+
+//define start over section
+
+let removeGameOverSection;
+let removeRenderTimerSection;
 
 //function to remove start section
 const removeStartSection = () => {
@@ -70,19 +75,29 @@ const startTimer = () => {
     // if quizComplete is true then stop timer
     timerSpan.textContent = `Time Remaining: ${timer}`;
     // check if timer reaches 0
-    if (timer === 0) {
+    if (timer === 0 || timer < 0) {
       clearInterval(timerId);
       removeQuestion();
-      console.log("RENDER GAME OVER");
 
-      //RENDER GAME OVER
+      renderGameOver();
+      console.log("RENDER GAME OVER");
+      const startOver = document.getElementById("start-over-id");
+      startOver.addEventListener("click", startQuiz);
+      removeGameOverSection = document.getElementById("render-game-over");
+      removeRenderTimerSection = document.getElementById("timer-section");
     }
     if (questionIndex === questions.length - 1) {
       clearInterval(timerId);
     }
+    console.log(questionIndex, questions.length);
   };
+
   // setInterval of 1000ms (1s)
   const timerId = setInterval(timerTick, 1000);
+};
+
+const removeTime = () => {
+  removeRenderTimerSection.remove();
 };
 
 const handleFormSubmit = (event) => {
@@ -102,6 +117,34 @@ const handleFormSubmit = (event) => {
     //write to to LS
     localStorage.setItem("highScores", JSON.stringify(highScores));
   }
+};
+
+const renderGameOver = () => {
+  const gameOverSection = document.createElement("section");
+  gameOverSection.setAttribute("id", "render-game-over");
+
+  const gameOverHeader = document.createElement("h6");
+  gameOverHeader.setAttribute("class", "game-over");
+  gameOverHeader.textContent =
+    " Unfortunatley The Game Is Over Click Start Over.";
+
+  const restartButton = document.createElement("div");
+  restartButton.setAttribute("class", "start-over-button");
+
+  const restartBtn = document.createElement("button");
+  restartBtn.setAttribute("class", "start-over");
+  restartBtn.setAttribute("id", "start-over-id");
+  restartBtn.textContent = "Start Over";
+
+  restartButton.append(restartBtn);
+
+  gameOverSection.append(restartButton, gameOverHeader);
+
+  mainElement.append(gameOverSection);
+};
+
+const removeGameOver = () => {
+  removeGameOverSection.remove();
 };
 
 const renderTimerSection = () => {
@@ -236,20 +279,7 @@ const renderQuestionSection = () => {
   //append li to ul
   ul.append(li1, li2);
 
-  //create div and append button
-  const div = document.createElement("div");
-  div.setAttribute("class", "btn-control");
-
-  //creating button
-  const btn = document.createElement("btn");
-  btn.setAttribute("class", "btn-control");
-  //button other attribute
-  btn.setAttribute("id", "next-button");
-
-  //append button to div
-  div.append(btn);
-  //append h2 , ul and div to section
-  questionSection.append(h2, ul, div);
+  questionSection.append(h2, ul);
   // append question section to main element
   mainElement.append(questionSection);
 
@@ -328,6 +358,15 @@ const startQuiz = () => {
   //linked connected the start button
   console.log("start-btn-clicked");
 
+  timer = 60;
+
+  if (removeGameOverSection) {
+    removeGameOver();
+  }
+  //
+  if (removeRenderTimerSection) {
+    removeTime();
+  }
   //initalise local storage
   intialiseLocalStorage();
 
