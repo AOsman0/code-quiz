@@ -65,12 +65,18 @@ const startTimer = () => {
   const timerTick = () => {
     timer -= 1;
 
+    timerSpan.textContent = timer > 0 ? timer : 0;
+
     // if quizComplete is true then stop timer
     timerSpan.textContent = `Time Remaining: ${timer}`;
     // check if timer reaches 0
     if (timer === 0) {
       // if true render game over
       clearInterval(timerId);
+      removeQuestion();
+      console.log("RENDER GAME OVER");
+
+      //RENDER GAME OVER
     }
     if (questionIndex === questions.length - 1) {
       clearInterval(timerId);
@@ -167,6 +173,7 @@ const handleOptionsClicked = (event) => {
       console.log("incorrect");
       // if incorrect subtract 5 seconds from timerValue
       timer -= 5;
+      alert("Answer was wrong please focus!");
 
       // if incorrect render error alert with message and status
       //have a render alert function in java script and my HTML
