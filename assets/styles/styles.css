@@ -1,0 +1,231 @@
+:root {
+  --silver: #c5c5c5ff;
+  --deep-space-sparkle: #4c5b61ff;
+  --battleship-grey: #829191ff;
+  --spanish-gray: #949b96ff;
+  --dark-slate-gray: #2c423fff;
+  --celadon: #a6d3a0ff;
+  --aero-blue: #d1ffd7ff;
+  --mint-green: #b3ffb3ff;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+body {
+  margin: 0;
+  line-height: 2;
+  font-size: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(silver, rgb(87, 87, 87), black);
+}
+
+.main {
+  flex: 3;
+}
+/* nav bar */
+
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  border-style: solid;
+  border-color: black;
+}
+
+.nav-link {
+  font-size: 2rem;
+  text-decoration: none;
+  width: 2.2rem;
+  color: rgb(0, 112, 204);
+  text-transform: uppercase;
+  padding-bottom: 0.8rem;
+}
+
+.quiz-title {
+  font-size: 4rem;
+  text-align: center;
+  color: rgb(0, 112, 204);
+  padding-top: 1rem;
+  font-family: Arial;
+}
+
+.quiz-info {
+  text-align: center;
+  color: black;
+  margin: 3rem;
+  line-height: 4rem;
+  border-style: solid;
+  border-color: dimgrey;
+}
+
+.btn-controller {
+  padding: 2.5rem 1.5rem;
+  text-align: center;
+}
+
+.start-quiz,
+.btn {
+  color: rgb(0, 112, 204);
+  text-transform: uppercase;
+  width: 18rem;
+  font-size: 2rem;
+  background-color: black;
+}
+.start-quiz:hover {
+  cursor: pointer;
+  background-color: var(--celadon);
+  box-shadow: 1rem var(--mint-green);
+}
+
+/* styled button */
+
+/* question-styles */
+
+.question-head {
+  font-size: 4rem;
+  color: rgb(0, 112, 204);
+  font-family: Arial;
+  padding: 2rem;
+  text-align: center;
+  list-style: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 1rem;
+  margin: 3rem;
+}
+.list-items {
+  font-size: 2rem;
+  color: rgb(0, 112, 204);
+  font-family: Arial;
+  padding: 1rem;
+  text-align: center;
+  list-style: none;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.5rem;
+  margin: 6rem;
+}
+
+.btn-control {
+  text-align: center;
+}
+
+/* Time no styling */
+
+/* form styling */
+
+.form-scores {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  text-decoration: underline;
+}
+
+.form-1 {
+  border-style: solid;
+  border-color: rgb(27, 26, 26);
+  border-width: 0.6rem;
+  align-content: space-around;
+  background-color: whitesmoke;
+  margin: 5rem;
+}
+
+.full-name-input,
+#btn-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(0, 112, 204);
+  line-height: 2rem;
+  padding: 1.3rem;
+}
+
+#timer-section,
+.timer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(0, 112, 204);
+  font-size: 2rem;
+}
+
+.table-high-scores {
+  color: rgb(0, 112, 204);
+  font-size: 2rem;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.table-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.table-scores {
+  border-style: solid;
+  border-color: black;
+  border-width: 0.3rem;
+}
+
+.table-heading-1,
+.table-data-1 {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  width: 20rem;
+  border-style: solid;
+  border-color: black;
+}
+
+.table-heading-2 {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  width: 20rem;
+  border-style: solid;
+  border-color: black;
+}
+.table-data-2 {
+  font-size: 3rem;
+  color: rgb(0, 112, 204);
+  text-align: center;
+  width: 20rem;
+  border-style: solid;
+  border-color: black;
+}
+
+#render-game-over {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border-style: solid;
+  border-color: black;
+  border-width: 0.6rem;
+}
+
+.start-over-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  color: rgb(0, 112, 204);
+  line-height: 2rem;
+  padding: 1.3rem;
+}
+
+.game-over {
+  color: blue;
+  text-align: center;
+  font-size: 2rem;
+}
