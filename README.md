@@ -14,7 +14,7 @@ Arrays, Local Storage, Objects,Functions, Appending Elements and For Loops.
 
 # Link to URL
 
-[here](/https://aosman0.github.io/code-quiz/)
+[here]()
 
 # Screenshots
 
